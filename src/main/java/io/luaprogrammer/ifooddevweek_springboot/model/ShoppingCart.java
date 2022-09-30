@@ -27,7 +27,7 @@ public class ShoppingCart {
     @JsonIgnore
     private Client client;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Item> items;
 
     private Double totalValue;

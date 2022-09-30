@@ -7,8 +7,8 @@ INSERT INTO client (id, complement, zip_address, name) VALUES
 
 INSERT INTO product (id, is_available,  name, unit_price, restaurant_id) VALUES
 (1, true, 'Sushi 40 peças', 106.001, 1),
-(1, true, 'Temaki', 26.00, 1),
-(1, true, 'X-burguer', 6.00, 2);
+(2, true, 'Temaki', 26.00, 1),
+(3, true, 'X-burguer', 6.00, 2);
 
 INSERT INTO shopping_cart (id, form_payment, is_closed, total_value, client_id) VALUES
 (1, 0, false, 0.0, 1);
