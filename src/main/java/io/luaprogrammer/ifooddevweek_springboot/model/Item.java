@@ -18,8 +18,8 @@ import javax.persistence.*;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @OneToOne
     private Product product;

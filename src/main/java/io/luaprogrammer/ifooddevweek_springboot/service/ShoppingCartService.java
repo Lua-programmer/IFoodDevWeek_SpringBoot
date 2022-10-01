@@ -5,7 +5,7 @@ import io.luaprogrammer.ifooddevweek_springboot.model.ShoppingCart;
 import io.luaprogrammer.ifooddevweek_springboot.rest.dto.ItemDto;
 
 public interface ShoppingCartService {
-    ShoppingCart viewShoppingCart(Long id);
-    ShoppingCart closeShoppingCart(Long id, int formPayment);
+    ShoppingCart viewShoppingCart(Integer id);
+    ShoppingCart closeShoppingCart(Integer id, int formPayment);
     Item includeItemShoppingCart(ItemDto itemDto);
 }

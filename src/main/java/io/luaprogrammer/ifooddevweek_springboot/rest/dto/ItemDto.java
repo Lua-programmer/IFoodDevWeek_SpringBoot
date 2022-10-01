@@ -14,7 +14,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 @NoArgsConstructor
 public class ItemDto {
-    private Long productId;
+    private Integer productId;
     private int quantity;
-    private Long shoppingCartId;
+    private Integer shoppingCartId;
 }

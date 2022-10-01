@@ -18,8 +18,8 @@ import java.util.List;
 public class Restaurant {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer Id;
 
     private String name;
 

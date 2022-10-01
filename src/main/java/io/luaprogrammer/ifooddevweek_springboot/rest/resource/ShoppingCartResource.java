@@ -20,12 +20,12 @@ public class ShoppingCartResource {
     }
 
     @GetMapping("/{id}")
-    public ShoppingCart viewShoppingCart(@PathVariable("id") Long id) {
+    public ShoppingCart viewShoppingCart(@PathVariable("id") Integer id) {
         return service.viewShoppingCart(id);
     }
 
     @PatchMapping("/closeShoppingCart/{shoppingCartId}")
-    public ShoppingCart closeShoppingCart(@PathVariable("shoppingCartId") Long shoppingCartId,
+    public ShoppingCart closeShoppingCart(@PathVariable("shoppingCartId") Integer shoppingCartId,
                                           @RequestParam("formPayment") int formPayment)
     {
         return service.closeShoppingCart(shoppingCartId, formPayment);

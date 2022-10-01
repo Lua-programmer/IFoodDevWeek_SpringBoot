@@ -25,7 +25,7 @@ public class ShoppingCartImpl implements ShoppingCartService {
     private final ItemRepository itemRepository;
 
     @Override
-    public ShoppingCart viewShoppingCart(Long id) {
+    public ShoppingCart viewShoppingCart(Integer id) {
         return repository.findById(id).orElseThrow(() -> {
                     throw new RuntimeException("Couldn't find shopping cart with id " + id);
                 }
@@ -33,25 +33,17 @@ public class ShoppingCartImpl implements ShoppingCartService {
     }
 
     @Override
-    public ShoppingCart closeShoppingCart(Long id, int formPayment) {
+    public ShoppingCart closeShoppingCart(Integer id, int formPayment) {
         ShoppingCart shoppingCart = viewShoppingCart(id);
 
         if (shoppingCart.getItems().isEmpty()) throw new RuntimeException("Include items in shopping cart");
 
-        FormPayment payment;
-        switch (formPayment) {
-            case 0:
-                payment = FormPayment.MONEY;
-                break;
-            case 1:
-                payment = FormPayment.BOARDMACHINE;
-                break;
-            case 3:
-                payment = FormPayment.PIX;
-                break;
-            default:
-                throw new RuntimeException("FormPayment invalid");
-        }
+        FormPayment payment = switch (formPayment) {
+            case 0 -> FormPayment.MONEY;
+            case 1 -> FormPayment.BOARDMACHINE;
+            case 3 -> FormPayment.PIX;
+            default -> throw new RuntimeException("FormPayment invalid");
+        };
 
         shoppingCart.setFormPayment(payment);
         shoppingCart.setClosed(true);
@@ -84,7 +76,7 @@ public class ShoppingCartImpl implements ShoppingCartService {
             if (currentRestaurant.equals(restaurantToAddItem)) {
                 shoppingCartItems.add(insertItem);
             } else {
-                throw new RuntimeException("It is not possible to add products from different restaurants. Close the shopping cart or empty it.");
+                throw new RuntimeException("It's not possible to add products from different restaurants. Close the shopping cart or empty it.");
             }
         }
 

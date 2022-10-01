@@ -20,8 +20,8 @@ import java.util.List;
 public class ShoppingCart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
@@ -36,5 +36,4 @@ public class ShoppingCart {
     private FormPayment FormPayment;
 
     private boolean isClosed;
-
 }
