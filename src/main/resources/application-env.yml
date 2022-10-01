@@ -7,3 +7,5 @@ spring:
     url: jdbc:postgresql://localhost:${port}/${db}?createDatabaseIfNotExist=true
     username: ${user}
     password: ${password}
+  flyway:
+    locations: classpath:db/migration

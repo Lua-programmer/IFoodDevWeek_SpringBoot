@@ -32,7 +32,7 @@ public class ShoppingCart {
 
     private Double totalValue;
 
-    @Enumerated
+    @Enumerated(EnumType.ORDINAL)
     private FormPayment FormPayment;
 
     private boolean isClosed;

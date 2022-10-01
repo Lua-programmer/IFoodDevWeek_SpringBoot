@@ -12,6 +12,7 @@ import io.luaprogrammer.ifooddevweek_springboot.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,7 +27,7 @@ public class ShoppingCartImpl implements ShoppingCartService {
     @Override
     public ShoppingCart viewShoppingCart(Long id) {
         return repository.findById(id).orElseThrow(() -> {
-                    throw new RuntimeException("Couldn't find shopping cart with");
+                    throw new RuntimeException("Couldn't find shopping cart with id " + id);
                 }
         );
     }
@@ -67,7 +68,7 @@ public class ShoppingCartImpl implements ShoppingCartService {
         }
 
         Item insertItem = Item.builder()
-                .amount(itemDto.getAmount())
+                .quantity(itemDto.getQuantity())
                 .shoppingCart(shoppingCart)
                 .product(productRepository.findById(itemDto.getProductId()).orElseThrow(() ->
                 {
@@ -87,7 +88,16 @@ public class ShoppingCartImpl implements ShoppingCartService {
             }
         }
 
+        List<Double> itemsValues = new ArrayList<Double>();
+        for (Item shoppingCartItem : shoppingCartItems) {
+            double totalValue = shoppingCartItem.getProduct().getUnitPrice() * shoppingCartItem.getQuantity();
+            itemsValues.add(totalValue);
+        }
+
+        double totalShoppingCartValue = itemsValues.stream().mapToDouble(value -> value).sum();
+        shoppingCart.setTotalValue(totalShoppingCartValue);
+
         repository.save(shoppingCart);
-        return itemRepository.save(insertItem);
+        return insertItem;
     }
 }

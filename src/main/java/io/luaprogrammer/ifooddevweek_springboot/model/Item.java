@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -24,7 +23,7 @@ public class Item {
 
     @OneToOne
     private Product product;
-    private int amount;
+    private int quantity;
 
     @ManyToOne
     @JsonIgnore
