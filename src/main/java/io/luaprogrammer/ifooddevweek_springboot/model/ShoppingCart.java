@@ -2,7 +2,7 @@ package io.luaprogrammer.ifooddevweek_springboot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.luaprogrammer.ifooddevweek_springboot.enumeration.FormPayment;
+import io.luaprogrammer.ifooddevweek_springboot.enums.FormPayment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

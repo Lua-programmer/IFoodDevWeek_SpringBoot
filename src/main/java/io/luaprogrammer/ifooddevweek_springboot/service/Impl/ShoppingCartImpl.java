@@ -1,6 +1,6 @@
 package io.luaprogrammer.ifooddevweek_springboot.service.Impl;
 
-import io.luaprogrammer.ifooddevweek_springboot.enumeration.FormPayment;
+import io.luaprogrammer.ifooddevweek_springboot.enums.FormPayment;
 import io.luaprogrammer.ifooddevweek_springboot.model.Item;
 import io.luaprogrammer.ifooddevweek_springboot.model.Restaurant;
 import io.luaprogrammer.ifooddevweek_springboot.model.ShoppingCart;
