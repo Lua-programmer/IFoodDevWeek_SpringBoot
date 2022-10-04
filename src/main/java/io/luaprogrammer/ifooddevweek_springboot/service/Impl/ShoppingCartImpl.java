@@ -71,8 +71,8 @@ public class ShoppingCartImpl implements ShoppingCartService {
         if (shoppingCartItems.isEmpty()) {
             shoppingCartItems.add(insertItem);
         } else {
-            Restaurant currentRestaurant = shoppingCartItems.get(0).getProduct().getRestaurant();
-            Restaurant restaurantToAddItem = insertItem.getProduct().getRestaurant();
+            Integer currentRestaurant = shoppingCartItems.get(0).getProduct().getRestaurant().getId();
+            Integer restaurantToAddItem = insertItem.getProduct().getRestaurant().getId();
             if (currentRestaurant.equals(restaurantToAddItem)) {
                 shoppingCartItems.add(insertItem);
             } else {
